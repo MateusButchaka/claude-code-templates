@@ -17,20 +17,21 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site).href;
+const siteURL = Astro.site ? new URL('/', Astro.site).href.replace(/\/$/, '') : '';
 
 const schemaData = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "#website",
+      "@id": `${siteURL}/#website`,
       "name": "MV Templates",
       "description": "Marketplace de componentes para Claude Code: agentes, comandos, skills, settings, hooks e MCPs.",
-      "publisher": { "@id": "#organization" }
+      "publisher": { "@id": `${siteURL}/#organization` }
     },
     {
       "@type": "Organization",
-      "@id": "#organization",
+      "@id": `${siteURL}/#organization`,
       "name": "MV Templates",
       "sameAs": [
         "https://github.com/MateusButchaka/claude-code-templates"
