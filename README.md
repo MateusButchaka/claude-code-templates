@@ -6,14 +6,9 @@
 [![Claude for Open Source](https://img.shields.io/badge/Claude-Open%20Source%20Program-D97757?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==)](https://claude.com/contact-sales/claude-for-oss)
 [![Neon Open Source Program](https://img.shields.io/badge/Neon-Open%20Source%20Program-00E599?style=flat)](https://get.neon.com/4eCjZDz)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/daniavila)
-[![GitHub stars](https://img.shields.io/github/stars/davila7/claude-code-templates.svg?style=social&label=Star)](https://github.com/davila7/claude-code-templates)
+[![GitHub stars](https://img.shields.io/github/stars/MateusButchaka/claude-code-templates.svg?style=social&label=Star)](https://github.com/MateusButchaka/claude-code-templates)
 
 <p align="center">
-  <a href="https://trendshift.io/repositories/15113" target="_blank">
-    <img src="https://trendshift.io/api/badge/repositories/15113" alt="davila7%2Fclaude-code-templates | Trendshift" style="width: 200px; height: 40px;" width="125" height="40"/>
-  </a>
-  <br />
-  <br />
   <a href="https://vercel.com/oss">
   <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
   </a>
@@ -31,9 +26,9 @@
 
 > **🧪 NEW: Dashboard** — Explore components, manage collections, and track installations at **[www.aitmpl.com](https://www.aitmpl.com)**. Currently in beta — feedback welcome!
 
-# Claude Code Templates ([aitmpl.com](https://aitmpl.com))
+# MV Templates
 
-**Ready-to-use configurations for Anthropic's Claude Code.** A comprehensive collection of AI agents, custom commands, settings, hooks, external integrations (MCPs), and project templates to enhance your development workflow.
+**Componentes prontos para o Claude Code da Anthropic.** Uma coleção completa de agentes IA, comandos personalizados, settings, hooks, integrações externas (MCPs) e templates de projeto para potencializar seu fluxo de desenvolvimento.
 
 ## Browse & Install Components and Templates
 
@@ -149,11 +144,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **🌐 Browse Templates**: [aitmpl.com](https://aitmpl.com)
 - **📚 Documentation**: [docs.aitmpl.com](https://docs.aitmpl.com)
-- **💬 Community**: [GitHub Discussions](https://github.com/davila7/claude-code-templates/discussions)
-- **🐛 Issues**: [GitHub Issues](https://github.com/davila7/claude-code-templates/issues)
+- **💬 Community**: [GitHub Discussions](https://github.com/MateusButchaka/claude-code-templates/discussions)
+- **🐛 Issues**: [GitHub Issues](https://github.com/MateusButchaka/claude-code-templates/issues)
 
 ## Stargazers over time
-[![Stargazers over time](https://starchart.cc/davila7/claude-code-templates.svg?variant=adaptive)](https://starchart.cc/davila7/claude-code-templates)
+[![Stargazers over time](https://starchart.cc/MateusButchaka/claude-code-templates.svg?variant=adaptive)](https://starchart.cc/MateusButchaka/claude-code-templates)
 
 ---
 

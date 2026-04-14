@@ -61,7 +61,7 @@
     "rust",
     "go"
   ],
-  "author": "Claude Code Templates",
+  "author": "MV Templates",
   "license": "MIT",
   "dependencies": {
     "boxen": "^5.1.2",
@@ -83,12 +83,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davila7/claude-code-templates.git"
+    "url": "git+https://github.com/MateusButchaka/claude-code-templates.git"
   },
   "bugs": {
-    "url": "https://github.com/davila7/claude-code-templates/issues"
+    "url": "https://github.com/MateusButchaka/claude-code-templates/issues"
   },
-  "homepage": "https://github.com/davila7/claude-code-templates#readme",
+  "homepage": "https://github.com/MateusButchaka/claude-code-templates#readme",
   "files": [
     "bin/",
     "src/",

@@ -77,7 +77,7 @@ export const FEATURED_ITEMS: FeaturedItem[] = [
 ];
 
 export const NAV_LINKS = {
-  github: 'https://github.com/davila7/claude-code-templates',
+  github: 'https://github.com/MateusButchaka/claude-code-templates',
   docs: 'https://docs.aitmpl.com/',
   blog: 'https://aitmpl.com/blog/',
   trending: 'https://aitmpl.com/trending.html',

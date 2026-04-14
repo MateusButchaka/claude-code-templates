@@ -31,7 +31,7 @@ interface SkillExplorerProps {
   headings: Heading[];
 }
 
-const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/davila7/claude-code-templates/main/cli-tool/components/skills';
+const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/MateusButchaka/claude-code-templates/main/cli-tool/components/skills';
 
 const EXT_COLORS: Record<string, string> = {
   md: '#60a5fa', js: '#facc15', ts: '#60a5fa', tsx: '#60a5fa', jsx: '#facc15',
