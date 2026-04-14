@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = 'Claude Code Templates',
-  description = 'Browse and install 1000+ components for Claude Code: AI agents, slash commands, MCP integrations, hooks, settings, and skills. Free, open-source CLI tool.',
+  title = 'MV Templates',
+  description = 'MV Templates - Marketplace de componentes para Claude Code: agentes, comandos, skills, settings, hooks e MCPs.',
   ogImage = '/logo.png'
 } = Astro.props;
 
@@ -23,23 +23,17 @@ const schemaData = JSON.stringify({
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.aitmpl.com/#website",
-      "url": "https://www.aitmpl.com/",
-      "name": "Claude Code Templates",
-      "description": "Marketplace for Claude Code components: agents, commands, skills, settings, hooks, and MCPs",
-      "publisher": { "@id": "https://www.aitmpl.com/#organization" }
+      "@id": "#website",
+      "name": "MV Templates",
+      "description": "Marketplace de componentes para Claude Code: agentes, comandos, skills, settings, hooks e MCPs.",
+      "publisher": { "@id": "#organization" }
     },
     {
       "@type": "Organization",
-      "@id": "https://www.aitmpl.com/#organization",
-      "name": "Claude Code Templates",
-      "url": "https://www.aitmpl.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.aitmpl.com/logo.png"
-      },
+      "@id": "#organization",
+      "name": "MV Templates",
       "sameAs": [
-        "https://github.com/davila7/claude-code-templates"
+        "https://github.com/MateusButchaka/claude-code-templates"
       ]
     }
   ]
@@ -61,7 +55,7 @@ const schemaData = JSON.stringify({
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content="Claude Code Templates" />
+    <meta property="og:site_name" content="MV Templates" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

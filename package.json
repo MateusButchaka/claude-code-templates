@@ -1,7 +1,7 @@
 {
-  "name": "claude-code-templates",
+  "name": "mv-templates",
   "version": "1.28.16",
-  "description": "Component templates and tracking system for Claude Code",
+  "description": "MV Templates - Component templates and tracking system for Claude Code",
   "main": "cli-tool/src/index.js",
   "bin": {
     "claude-code-templates": "cli-tool/bin/create-claude-config.js",
@@ -47,6 +47,6 @@
     "tracking",
     "analytics"
   ],
-  "author": "Claude Code Templates",
+  "author": "MV Templates",
   "license": "MIT"
 }
