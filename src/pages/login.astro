@@ -1,0 +1,105 @@
+---
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - MV Templates</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .container { width: 100%; max-width: 400px; padding: 2rem; }
+    .logo { text-align: center; margin-bottom: 2rem; }
+    .logo h1 { font-size: 1.8rem; font-weight: 700; }
+    .logo p { color: #888; margin-top: 0.5rem; font-size: 0.9rem; }
+    .card { background: #111; border: 1px solid #222; border-radius: 12px; padding: 2rem; }
+    label { font-size: 0.85rem; color: #aaa; margin-bottom: 0.25rem; display: block; }
+    input { width: 100%; padding: 0.75rem 1rem; background: #0a0a0a; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; }
+    input:focus { border-color: #555; }
+    .btn { width: 100%; padding: 0.75rem; border-radius: 8px; border: none; font-size: 0.95rem; font-weight: 600; cursor: pointer; background: #fff; color: #000; margin-top: 1rem; transition: background 0.2s; }
+    .btn:hover { background: #e0e0e0; }
+    .btn:disabled { background: #555; cursor: not-allowed; }
+    .error { background: #2a0a0a; border: 1px solid #5a1a1a; color: #ff6b6b; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; display: none; margin-top: 1rem; }
+    .success { background: #0a2a0a; border: 1px solid #1a5a1a; color: #6bff6b; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; display: none; margin-top: 1rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <h1>MV Templates</h1>
+      <p>Componentes prontos para o Claude Code</p>
+    </div>
+    <div class="card">
+      <form id="login-form">
+        <div>
+          <label>Email</label>
+          <input type="email" id="email" placeholder="seu@email.com" required />
+        </div>
+        <div style="margin-top: 1rem;">
+          <label>Senha</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+        </div>
+        <button type="button" class="btn" id="btn-login">Entrar</button>
+        <div id="error" class="error"></div>
+        <div id="success" class="success">Login realizado! Redirecionando...</div>
+      </form>
+    </div>
+  </div>
+  <script>
+    const SUPABASE_URL = 'https://ljwsqoqwvfomoglayjth.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_s3gN1V5As87r8USQAr9j5g_DJVqY8yo';
+
+    const stored = localStorage.getItem('mv-session');
+    if (stored) {
+      try {
+        const p = JSON.parse(stored);
+        if (p.access_token) window.location.replace('/');
+      } catch(e) {}
+    }
+
+    document.getElementById('btn-login').addEventListener('click', handleLogin);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleLogin();
+    });
+
+    async function handleLogin() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorEl = document.getElementById('error');
+      const successEl = document.getElementById('success');
+      const btn = document.getElementById('btn-login');
+
+      if (!email || !password) return;
+
+      btn.textContent = 'Entrando...';
+      btn.disabled = true;
+      errorEl.style.display = 'none';
+
+      const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY
+        },
+        body: JSON.stringify({ email: email, password: password })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        errorEl.textContent = 'Email ou senha invalidos';
+        errorEl.style.display = 'block';
+        btn.textContent = 'Entrar';
+        btn.disabled = false;
+      } else {
+        localStorage.setItem('mv-session', JSON.stringify(data));
+        successEl.style.display = 'block';
+        setTimeout(function() {
+          window.location.replace('/');
+        }, 800);
+      }
+    }
+  </script>
+</body>
+</html>

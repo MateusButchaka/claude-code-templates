@@ -1,0 +1,28 @@
+---
+import { createClient } from "@supabase/supabase-js";
+const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
+const { data: { session } } = await supabase.auth.getSession();
+if (!session) return Astro.redirect("/login");
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - MV Templates</title>
+  <style>
+    body { background: #0a0a0a; color: #fff; padding: 2rem; font-family: system-ui; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .card { background: #111; padding: 3rem; border-radius: 12px; text-align: center; border: 1px solid #333; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    h1 { margin-bottom: 1rem; color: #4CAF50; }
+    p { color: #ccc; font-size: 1.1rem; }
+    .email { color: #fff; font-weight: bold; background: #222; padding: 5px 10px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Sucesso!</h1>
+    <p>Você está logado.</p>
+    <p>Email: <span class="email">{session.user.email}</span></p>
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">Sua automação está funcionando perfeitamente.</p>
+  </div>
+</body>
+</html>

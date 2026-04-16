@@ -1,0 +1,30 @@
+import { defineMiddleware } from 'astro:middleware';
+
+export const onRequest = defineMiddleware(async (context, next) => {
+  const { pathname } = context.url;
+  
+  // ✅ Rotas públicas (NÃO redirecionar)
+  const publicPaths = [
+    '/login',
+    '/api/',
+    '/_astro/',
+    '/favicon.ico',
+    '/npm/',           // ← Scripts do Supabase/ESM
+    '/@',              // ← Imports de módulos
+    '.js', '.css', '.json', '.png', '.jpg', '.svg', '.ico', '.woff', '.woff2' // ← Assets estáticos
+  ];
+  
+  // Verifica se é rota pública
+  const isPublic = publicPaths.some(p => pathname.includes(p));
+  if (isPublic) {
+    return next();
+  }
+
+  // Verifica sessão do Supabase
+  const hasSession = context.cookies.get('sb-access-token')?.value;
+  if (!hasSession) {
+    return context.redirect('/login');
+  }
+
+  return next();
+});

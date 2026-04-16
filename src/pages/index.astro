@@ -1,0 +1,44 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import FeaturedSection from '../components/FeaturedSection.astro';
+import JobsPreview from '../components/JobsPreview.tsx';
+import ComponentGrid from '../components/ComponentGrid.tsx';
+import SearchModal from '../components/SearchModal.tsx';
+import CartSidebar from '../components/CartSidebar.tsx';
+
+export const prerender = true;
+---
+
+<DashboardLayout
+  title="MV Templates: Agentes, Comandos, Skills & Integrações MCP para Claude Code"
+  description="Explore e instale componentes para Claude Code. Agentes IA, slash commands, integrações MCP, hooks e settings. Powered by MV."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MV Templates",
+    "description": "CLI tool e marketplace para gerenciar componentes Claude Code. Agentes, comandos, skills, settings, hooks e integrações MCP.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Windows, macOS, Linux",
+    "author": { "@type": "Organization", "name": "MV Templates", "url": "https://github.com/MateusButchaka/claude-code-templates" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "softwareRequirements": "Node.js 18+, Claude Code CLI",
+    "license": "https://opensource.org/licenses/MIT"
+  })} />
+  
+  <!-- Proteção: verifica sessão no client -->
+  <script>
+    const s = localStorage.getItem('mv-session');
+    if (!s || !JSON.parse(s)?.access_token) {
+      window.location.replace('/login');
+    }
+  </script>
+  
+  <TopBar />
+  <FeaturedSection />
+  <JobsPreview client:idle />
+  <ComponentGrid client:load initialType="skills" />
+  <SearchModal client:idle />
+  <CartSidebar client:idle />
+</DashboardLayout>
